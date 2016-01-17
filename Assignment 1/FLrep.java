@@ -1,6 +1,6 @@
 class FLrep extends TreeAndRepresentation {
 
-  // VARIABLES, IF ANY NEEDED
+  private int k;
 
   FLrep(int m, int[] b) { // given sequence build tree
     super(m, b);
@@ -8,7 +8,22 @@ class FLrep extends TreeAndRepresentation {
 
   FLrep(int n, BT t) { // given tree build sequence
     super(n, t);
+    M = 2 * N + 1;
+    a = new int[M];
+    traverse(t, 0);
   }
 
-  // ANY ADDITIONAL METHODS GO HERE
+  private void recordValue(int value) {
+    a[k] = value;
+    k++;
+  }
+
+  void traverse(BT t, int depth) {
+    if (t == null) {
+      return;
+    }
+    traverse(t.L, depth+1);
+    recordValue(depth);
+    traverse(t.R, depth+1);
+  }
 }

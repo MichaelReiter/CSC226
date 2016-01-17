@@ -9,7 +9,7 @@ public class TestAss1 {
       a[i] = StdIn.readInt();
     }
 
-    boolean testZO = true;
+    boolean testZO = false;
 
     if (testZO) {
       ZOrep zo1 = new ZOrep( M, a );
