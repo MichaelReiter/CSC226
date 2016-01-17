@@ -5,6 +5,7 @@ class BT {
   BT L; BT R;
   BT( BT l, BT r ) { L = l; R = r; }
 }
+
 Binary trees will be represented together with some sequence representation by extending the abstract class shown below.
 
 abstract class TreeAndRepresentation {
@@ -15,9 +16,9 @@ abstract class TreeAndRepresentation {
    TreeAndRepresentation( int N, BT t )    { this.t = t; this.N = N; }  // subclass should set a,M.
    TreeAndRepresentation( int M, int[] a ) { this.a = a; this.M = M; } // subclass should set t,N.
 }
+
 You should extend TreeAndRepresentation to two classes called ZOrep and FLrep.
-First Representation (ZO): Let T be a binary tree with n nodes. Perform a preorder traversal of T
-T, recording a 1 as each node is encountered and a 0 for an empty subtree, to obtain a binary "tree sequence". For example, the binary tree shown at the top of page 396 in the book produces the tree sequence 111010011000100. This is like a well-formed parentheses string where a 1 is a left paren and a 0 is a right paren, if we ignore the final 0; in our example, we get ((()())(()))(). Furthermore, we can reverse the process, starting from a well-formed parentheses string to produce a unique binary tree.
+First Representation (ZO): Let T be a binary tree with n nodes. Perform a preorder traversal of T, recording a 1 as each node is encountered and a 0 for an empty subtree, to obtain a binary "tree sequence". For example, the binary tree shown at the top of page 396 in the book produces the tree sequence 111010011000100. This is like a well-formed parentheses string where a 1 is a left paren and a 0 is a right paren, if we ignore the final 0; in our example, we get ((()())(()))(). Furthermore, we can reverse the process, starting from a well-formed parentheses string to produce a unique binary tree.
 
 Here is a partially filled in template to get you started. Make sure that you understand how build works before moving on to the second representation.
 
