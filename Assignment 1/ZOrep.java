@@ -4,7 +4,7 @@ class ZOrep extends TreeAndRepresentation {
 
   ZOrep(int m, int[] b) { // given sequence build tree
     super(m, b);
-    N = (M-1)/2;
+    N = (M - 1) / 2;
     k = -1;
     t = build();
   }
@@ -27,11 +27,10 @@ class ZOrep extends TreeAndRepresentation {
   void traverse(BT t) {
     if (t != null) {
       recordValue(1);
+      traverse(t.L);
+      traverse(t.R);
     } else {
       recordValue(0);
-      return;
     }
-    traverse(t.L);
-    traverse(t.R);
   }
 }
