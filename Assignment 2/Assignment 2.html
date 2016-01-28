@@ -1,0 +1,100 @@
+<HTML>
+
+<HEAD>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+<H2>Assignment #2:</H2>
+
+<B>Programming part:</B>
+
+<P>
+In class we discussed the problem of finding the largest and smallest
+elements in an unordered array <TT>a[0..n-1]</TT>.   The solution 
+conceptually built up a binary tree where the leaves were the array
+entries and the internal nodes were pairs storing the minimum and maximum
+values of the leaves in the subtree rooted at that internal node.
+In resources there is a Pascal iterative implementation of the
+algorithm.  Your job is to write two recursive versions of the algorithm
+as specified below.
+
+You are to turn in a class MinMax{} that contains two public static
+methods <TT>Pair mmA( int lb, int ub, int[] a )</TT> and 
+<TT>Pair mmB( int lb, int ub, int[] a )</TT>.  They each return the
+min and the max of the subarray <TT>a[lb..ub]</TT> as a <TT>Pair</TT>
+where
+<pre>
+class Pair {
+   int alpha;   // the smaller one 
+   int omega; // the bigger one 
+   Pair ( int a, int o ) { alpha = a; omega = o; }
+}
+</pre>
+
+Both methods should be recursive.
+Method <TT>mmA</TT> is to use the usual divide-and-conquer approach,
+with a $\lfloor n/2 \rfloor$ and $\lceil n/2 \rceil$ split.
+Surprisingly, such a split will not give $\lceil 3n/2 - 2 \rceil$
+for all values of <TT>n</TT>.
+
+Analyze what is giving rise to the larger than expected number of comparisons,
+and by using a more refined split (which could have several cases) come up
+with a modified version of <TT>mmA</TT>, called <TT>mmB</TT>, that
+does indeed use exactly $\lceil 3n/2 - 2 \rceil$ comparisons.
+
+<P>
+<B>Written part:</B>
+
+<P>
+These first problems are related to the min-max problem.
+
+<ul>
+  <li>In the style of the sorting hand-out, write out the tree of posets for the
+  min-max problem when $n = 4$.
+  </li>
+  <li>Determine the smallest value of $n$ for which <TT>mmA</TT> and <TT>mmB</TT> use
+  a different number of comparisons.
+  </li>
+  <li>Write down a recurrence relation $C(n)$ for the number of comparisons used by
+  <TT>mmB</TT>.  It can have several cases.  Here's the recurrence relation for <TT>mmA</TT>:
+  \[
+  C(n) = \begin{cases}
+  0 & \text{ if } n = 1 \\
+  1 & \text{ if } n = 2 \\
+  2+C(\lfloor n/2 \rfloor)+C(\lceil n/2 \rceil) & \text{ if } n > 2
+  \end{cases}
+  \]
+  </li>
+  <li>Will not be marked but a good exercise nevertheless: Prove that your recurrence relation
+  for <TT>mmB</TT> satisfies $C(n) = \lceil 3n/2 - 2 \rceil$ by mathematical induction.
+  </li>
+</ul>
+
+<B>Additional written part:</B>
+
+<p>
+An inversion in a sequence is an out-of-order pair;
+i.e., $i < j$ but $a_i > a_j$.  Inversions are discussed briefly
+in the book on page 252.   For example, the sequence ($5,3,2,1,4$)
+has 7 inversions.
+
+<UL>
+<LI>
+What is the minimum number of inversions of a permutation of $1,2,\ldots,n$?
+<LI>
+What is the maximum number of inversions of a permutation of $1,2,\ldots,n$?
+<LI>
+Explain carefully how to use red-black trees to compute the number of inversions
+in a permutation time $O(n \log n)$.   Effectively, you may need to
+modify the code for Algorithm 3.4 on page 439.  Explain in detail any changes that
+you would make to <TT>put</TT>.
+</UL>
+
+
+</HTML>
