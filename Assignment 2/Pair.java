@@ -6,4 +6,8 @@ public class Pair {
     alpha = a;
     omega = o;
   }
+
+  public String toString() {
+    return "(" + alpha + ", " + omega + ")";
+  }
 }
