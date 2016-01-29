@@ -23,9 +23,9 @@ void minmax (int* a, int i, int j, int* min, int* max) {
 }
 
 int main () {
-  int a [] = {3, 4, 2, 6, 8, 1, 9, 12, 15, 11};
+  int a [] = {3, 4, 2, 6, 8, 1, 9, 12, 99, 14, 11};
   int min, max;
-  minmax (a, 0, 9, &min, &max);
+  minmax (a, 0, 10, &min, &max);
   printf ("Min : %d, Max: %d\n", min, max);
   return 0;
 }
