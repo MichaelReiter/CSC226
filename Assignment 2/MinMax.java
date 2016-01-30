@@ -11,7 +11,7 @@ public class MinMax {
     // odd one out so set min and max to same value
     if (ub == lb) {
       min = a[lb];
-      max = a[ub];
+      max = a[lb];
     } 
     // base case: compare two values in a pair
     else if (ub - lb + 1 == 2) {
@@ -23,7 +23,6 @@ public class MinMax {
         max = a[lb];
       }
       comparisons++;
-      return new Pair(min, max);
     } else {
       int midpoint = (lb + ub) / 2;
       Pair pair_l = mmA(lb, midpoint, a);
@@ -55,7 +54,7 @@ public class MinMax {
     // odd one out so set min and max to same value
     if (ub == lb) {
       min = a[lb];
-      max = a[ub];
+      max = a[lb];
     }
     // base case: compare two values in a pair
     else if (ub - lb + 1 == 2) {
@@ -67,17 +66,19 @@ public class MinMax {
         max = a[lb];
       }
       comparisons++;
-      return new Pair(min, max);
     } else {
       // splitpoint is halfway is a power of 2, else halfway - 1
       int diff = ub - lb + 1;
-      int splitpoint;
 
-      // if diff is a power of 2
-      if ((diff & (diff - 1)) == 0) {
-        splitpoint = (lb + ub) / 2;       
-      } else {
-        splitpoint = ((lb + ub) / 2) - 1;
+      int i = 0;
+      int splitpoint = (lb + ub) / 2 - i;
+      int bottom = splitpoint - lb + 1;
+      int top = ub - splitpoint;
+      while (!isPowerOf2(bottom) && !isPowerOf2(top)) {
+        i++;
+        splitpoint = (lb + ub) / 2 - i;
+        bottom = splitpoint - lb + 1;
+        top = ub - splitpoint;
       }
 
       Pair pair_l = mmB(lb, splitpoint, a);
@@ -99,6 +100,10 @@ public class MinMax {
       comparisons++;
     }
     return new Pair(min, max);
+  }
+
+  private static boolean isPowerOf2(int n) {
+    return ((n & (n-1)) == 0);
   }
 
   public static void main(String[] args) {
