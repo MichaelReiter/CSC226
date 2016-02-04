@@ -106,7 +106,7 @@ public class MinMaxTester {
   }
 
   public static void main(String[] args) {
-    int[] test = new int[1000000];
+    int[] test = new int[6];
 
     for (int i = 0; i < test.length; i++) {
       test[i] = i+1;
