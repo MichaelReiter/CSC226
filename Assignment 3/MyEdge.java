@@ -32,6 +32,7 @@ class MyEdge implements Comparable<MyEdge>{
 
   public int compareTo(MyEdge that) {
     // FOR YOU TO FILL IN
+    return 0; // temp
   }
   
 }

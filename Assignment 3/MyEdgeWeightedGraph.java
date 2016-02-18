@@ -14,6 +14,8 @@ class MyEdgeWeightedGraph {
 
   public MyEdgeWeightedGraph(In in) {
     // FOR YOU TO FILL IN
+    V = 0; // temp
+    E = 0;
   }
   
 }

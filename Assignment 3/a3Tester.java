@@ -7,6 +7,10 @@ public class a3Tester {
     MyKruskal mst = new MyKruskal(G);
     System.out.println(mst.include(G));
     System.out.println(mst.exclude(G));
+
+    // Expected output:
+    // 1197
+    // 1293
   }
 
 }

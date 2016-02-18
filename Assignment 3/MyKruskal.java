@@ -17,10 +17,12 @@ class MyKruskal {
 
   public long include(MyEdgeWeightedGraph G) {
     // FOR YOU TO FILL IN
+    return 0; // temp
   }
 
   public long exclude(MyEdgeWeightedGraph G) {
     // FOR YOU TO FILL IN
+    return 0; // temp
   }
 
 }
