@@ -1,0 +1,193 @@
+<HTML>
+<HEAD>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+</HEAD>
+
+<H1>Written Part</H1>
+
+<OL>
+
+<LI>
+How many ways are there to arrange the letters in the word "probabilistic"?
+<LI>
+With reference to the previous problem, how many ways if all the b's have to precede all the i's?
+<LI>
+How many ways are there to put 100 (unlabelled) balls into 50 labelled boxes?
+<LI>
+We computed the "mean time to failure" to be $1/p$ if the probability of failure is $p$.
+What is the mean time to the second failure?  In a sense, the answer is obvious, but prove
+it from first principles.  That is, write down an expression for $q_k$, the probability that
+the second failure occurs on the $k$-th trial, and then compute and simplify the weighted
+sum $\sum k q_k$.
+<LI>
+What number do you get if you subtract the binomial coefficients ${n \choose k}$ with an
+even $k$ from those with an odd $k$, where $n$ is fixed?
+<LI>
+What difference of binomial coefficients is equal to the sum
+\[
+{12 \choose 5} + {11 \choose 5} + {10 \choose 5} + {9 \choose 5} + {8 \choose 5} \ ?
+\]
+<LI>
+Imagine a maze created in a $m$ by $n$ grid.  Assume that there is a <I>unique</I> path
+from any cell to any other cell.  What is the total length of the walls in the maze as a function of $m$ and $n$?
+For example, below is a $2$ by $2$ grid with the required path property and the total length
+of walls is 9.  Explain your answer.
+<pre>
++---+---+
+|       |
++---+   +
+|       |
++---+---+
+</pre>
+
+</OL>
+
+<H1>Programming Part</H1>
+
+Your task here is to determine minimum spanning trees that do and do not contain specified edges.
+The program is to be loosely based on the algs4.jar classes
+<TT>Edge</TT>, <TT>EdgeWeightedGraph</TT>, and <TT>KruskalMST</TT>.
+You should write corresponding classes
+<TT>MyEdge</TT>, <TT>MyEdgeWeightedGraph</TT>, and <TT>MyKruskal</TT>.
+
+<P> 
+For a graph $G$ containing edge $e$, we use $\mathit{mst}(G+e)$ to denote the minimum
+spanning tree that contains edge $e$ and $\mathit{mst}(G-e)$ to denote the minimum
+spanning tree that does not contain the edge $e$.  We further define
+\[
+\mathit{include}(G) = \sum_{e \in G} mst(G+e)
+\text{ and }
+\mathit{exclude}(G) = \sum_{e \in G} mst(G-e).
+\]  
+Your program is to compute $\mathit{include}(G)$ and $\mathit{exclude}(G)$ (returning $-99$ if
+the graph is or becomes disconnected).
+
+<p>
+Instead of doubles, the weights in the graphs will be longs.   
+You may assume that all weights  are in the range $0 \le \mathit{weight} \lt 1000$ and that there
+are at most 10,000 vertices in the graph.  You may also assume that no edge is input twice.
+It is possible that there are ties in the weights and such
+ties <EM>must</EM> be resolved by taking lexicographic order of edges $(v,w)$ (that is $(v,w)$ is less than
+$(v',w')$ if $v \lt v'$, or if $v = v'$ and $w \lt w'$.
+
+
+
+</p>
+
+<pre>
+class MyEdge implements Comparable&lt;MyEdge>{
+   private final int v; // NOTE: ensure v &lt; w.
+   private final int w;
+   private long weight;
+
+   public int minv() { return v; }
+   public int maxv() { return w; }
+   public long weight() { return weight; }
+   public void changeWeight( long weight ) { this.weight = weight; }
+
+   MyEdge ( int v, int w, long weight ) {
+      this.v = v &lt; w ? v : w;
+      this.w = v &lt; w ? w : v;
+      this.weight = weight;
+   }
+
+   public String toString() {
+      return String.format("%d-%d %d", v, w, weight);
+   }
+
+   public int compareTo(MyEdge that) {
+      // FOR YOU TO FILL IN
+   }
+
+}
+</pre>
+
+Since we are using Kruskal's algorithm, the graphs will be represented as a Bag of edges.  The constructor reads the
+graph from a file using the same format as in algs4.jar (but with the weight as a long).
+
+<pre>
+class MyEdgeWeightedGraph {
+    private final int V;
+    private final int E;
+    private Bag&lt;MyEdge> edges;
+
+    public int V() { return V; }
+
+    public Iterable&lt;MyEdge> edges() { return edges; }
+
+    public MyEdgeWeightedGraph( In in ) {
+        // FOR YOU TO FILL IN
+    }
+}
+</pre>
+
+An outline of <TT>MyKruskal</TT> is found below.  Like <TT>KruskalMST</TT> you must use the class <TT>MinPQ</TT> and <TT>UF</TT>.
+
+<pre>
+class MyKruskal {
+
+   private long weight;                              // weight of MST
+   private Queue&lt;MyEdge> mst = new Queue&lt;MyEdge>();  // edges in MST
+
+   public long weight() { return weight; }
+
+   public Iterable&lt;MyEdge> edges() { return mst; }
+
+   public MyKruskal( MyEdgeWeightedGraph G ) {
+      // FOR YOU TO FILL IN
+   }
+
+   public long include( MyEdgeWeightedGraph G ) {
+      // FOR YOU TO FILL IN
+   }
+   
+   public long exclude( MyEdgeWeightedGraph G ) {
+      // FOR YOU TO FILL IN
+   }
+   
+
+}
+</pre>
+
+
+
+
+
+For example on an input file containing
+
+<pre>
+4
+5
+0 1 999
+1 2 10
+2 3 99
+3 0 11
+0 2 3
+</pre>
+
+has $\mathit{include}(G) = 1197$ and $\mathit{exclude}(G) = 1293$.   Those should be
+the two numbers output by the following main.
+
+<PRE>
+    public static void main( String[] args ) {
+
+        In in = new In( args[0] );
+        MyEdgeWeightedGraph G = new MyEdgeWeightedGraph( in );
+
+        MyKruskal mst = new MyKruskal( G );
+        System.out.println( mst.include( G ) );
+        System.out.println( mst.exclude( G ) );
+    }
+</PRE>
+
+
+
+
+</HTML>
