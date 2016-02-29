@@ -1,5 +1,4 @@
 public class a3Tester {
-
   public static void main(String[] args) {
     In in = new In(args[0]);
     MyEdgeWeightedGraph G = new MyEdgeWeightedGraph(in);
@@ -12,5 +11,4 @@ public class a3Tester {
     // 1197
     // 1293
   }
-
 }
