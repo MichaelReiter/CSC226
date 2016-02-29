@@ -1,4 +1,6 @@
-class MyEdge implements Comparable<MyEdge>{
+// Adapted from the Edge class in algs4
+
+class MyEdge implements Comparable<MyEdge> {
   private final int v; // NOTE: ensure v < w.
   private final int w;
   private long weight;
@@ -30,10 +32,10 @@ class MyEdge implements Comparable<MyEdge>{
   }
 
   public int compareTo(MyEdge that) {
-    if (this.weight() < that.weight()) {
-      return -1;
-    } else if (this.weight() > that.weight()) {
+    if (this.weight() > that.weight()) {
       return 1;
+    } else if (this.weight() < that.weight()) {
+      return -1;
     } else {
       return  0;
     }

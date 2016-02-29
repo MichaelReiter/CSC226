@@ -1,3 +1,5 @@
+// Adapted from the EdgeWeightedGraph class in algs4
+
 class MyEdgeWeightedGraph {
   private final int V;
   private final int E;

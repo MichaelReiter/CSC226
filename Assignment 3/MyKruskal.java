@@ -1,3 +1,5 @@
+// Adapted from the KruskalMST class in algs4
+
 class MyKruskal {
   private long weight;                              // weight of MST
   private Queue<MyEdge> mst = new Queue<MyEdge>();  // edges in MST
@@ -11,31 +13,40 @@ class MyKruskal {
   }
 
   public MyKruskal(MyEdgeWeightedGraph G) {
-    MinPQ<MyEdge> pq = new MinPQ<MyEdge>();
-    for (MyEdge e : G.edges()) {
-      pq.insert(e);
-    }
+    // MinPQ<MyEdge> minPQ = new MinPQ<MyEdge>();
+    // for (MyEdge edge : G.edges()) {
+    //   minPQ.insert(edge);
+    // }
 
-    UF uf = new UF(G.V());
-    while (!pq.isEmpty() && mst.size() < G.V() - 1) {
-      MyEdge e = pq.delMin();
-      int v = e.minv();
-      int w = e.maxv();
-      if (!uf.connected(v, w)) {
-        uf.union(v, w);
-        mst.enqueue(e);
-        weight += e.weight();
+    // Initialize MinPQ in O(E) time instead of O(ElogE)
+    MyEdge[] edges = new MyEdge[G.E()];
+    int i = 0;
+    for (MyEdge edge : G.edges()) {
+      edges[i] = edge;
+      i++;
+    }
+    MinPQ<MyEdge> minPQ = new MinPQ<MyEdge>(edges);
+
+    UF unionfind = new UF(G.V());
+    while (!minPQ.isEmpty() && mst.size() < G.V() - 1) {
+      MyEdge edge = minPQ.delMin();
+      int v = edge.minv();
+      int w = edge.maxv();
+      if (!unionfind.connected(v, w)) {
+        unionfind.union(v, w);
+        mst.enqueue(edge);
+        this.weight += edge.weight();
       }
     }
   }
 
   public static long include(MyEdgeWeightedGraph G) {
     // FOR YOU TO FILL IN
-    return 0; // temp
+    return -99; // temp
   }
 
   public static long exclude(MyEdgeWeightedGraph G) {
     // FOR YOU TO FILL IN
-    return 0; // temp
+    return -99; // temp
   }
 }
