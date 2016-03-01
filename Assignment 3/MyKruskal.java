@@ -87,7 +87,7 @@ class MyKruskal {
   }
 
   public static long exclude(MyEdgeWeightedGraph G) {
-    int includeSum = 0;
+    int excludeSum = 0;
 
     for (int i = 0; i < G.E(); i++) {
       Queue<MyEdge> mst = new Queue<MyEdge>();
@@ -97,9 +97,7 @@ class MyKruskal {
       int index = 0;
       MyEdge include = new MyEdge(0,0,0); //temporary values to be overwritten
       for (MyEdge edge : G.edges()) {
-        if (j == i) {
-          include = edge;
-        } else {
+        if (j != i) {
           edges[index] = edge;
           index++;
         }
@@ -109,12 +107,6 @@ class MyKruskal {
 
       int iterationWeight = 0;
       UF unionfind = new UF(G.V());
-      int v1 = include.minv();
-      int v2 = include.maxv();
-      unionfind.union(v1, v2);
-      mst.enqueue(include);
-      iterationWeight += include.weight();
-
       while (!minPQ.isEmpty() && mst.size() < G.V() - 1) {
         MyEdge edge = minPQ.delMin();
         int v = edge.minv();
@@ -126,10 +118,10 @@ class MyKruskal {
         }
       }
 
-      includeSum += iterationWeight;
+      excludeSum += iterationWeight;
     }
     
-    return includeSum;
+    return excludeSum;
     // return -99;
   }
 }
