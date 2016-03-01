@@ -41,12 +41,95 @@ class MyKruskal {
   }
 
   public static long include(MyEdgeWeightedGraph G) {
-    // FOR YOU TO FILL IN
-    return -99; // temp
+    int includeSum = 0;
+
+    for (int i = 0; i < G.E(); i++) {
+      Queue<MyEdge> mst = new Queue<MyEdge>();
+      MyEdge[] edges = new MyEdge[G.E()-1];
+
+      int j = 0;
+      int index = 0;
+      MyEdge include = new MyEdge(0,0,0); //temporary values to be overwritten
+      for (MyEdge edge : G.edges()) {
+        if (j == i) {
+          include = edge;
+        } else {
+          edges[index] = edge;
+          index++;
+        }
+        j++;
+      }
+      MinPQ<MyEdge> minPQ = new MinPQ<MyEdge>(edges);
+
+      int iterationWeight = 0;
+      UF unionfind = new UF(G.V());
+      int v1 = include.minv();
+      int v2 = include.maxv();
+      unionfind.union(v1, v2);
+      mst.enqueue(include);
+      iterationWeight += include.weight();
+
+      while (!minPQ.isEmpty() && mst.size() < G.V() - 1) {
+        MyEdge edge = minPQ.delMin();
+        int v = edge.minv();
+        int w = edge.maxv();
+        if (!unionfind.connected(v, w)) {
+          unionfind.union(v, w);
+          mst.enqueue(edge);
+          iterationWeight += edge.weight();
+        }
+      }
+
+      includeSum += iterationWeight;
+    }
+    
+    return includeSum;
   }
 
   public static long exclude(MyEdgeWeightedGraph G) {
-    // FOR YOU TO FILL IN
-    return -99; // temp
+    int includeSum = 0;
+
+    for (int i = 0; i < G.E(); i++) {
+      Queue<MyEdge> mst = new Queue<MyEdge>();
+      MyEdge[] edges = new MyEdge[G.E()-1];
+
+      int j = 0;
+      int index = 0;
+      MyEdge include = new MyEdge(0,0,0); //temporary values to be overwritten
+      for (MyEdge edge : G.edges()) {
+        if (j == i) {
+          include = edge;
+        } else {
+          edges[index] = edge;
+          index++;
+        }
+        j++;
+      }
+      MinPQ<MyEdge> minPQ = new MinPQ<MyEdge>(edges);
+
+      int iterationWeight = 0;
+      UF unionfind = new UF(G.V());
+      int v1 = include.minv();
+      int v2 = include.maxv();
+      unionfind.union(v1, v2);
+      mst.enqueue(include);
+      iterationWeight += include.weight();
+
+      while (!minPQ.isEmpty() && mst.size() < G.V() - 1) {
+        MyEdge edge = minPQ.delMin();
+        int v = edge.minv();
+        int w = edge.maxv();
+        if (!unionfind.connected(v, w)) {
+          unionfind.union(v, w);
+          mst.enqueue(edge);
+          iterationWeight += edge.weight();
+        }
+      }
+
+      includeSum += iterationWeight;
+    }
+    
+    return includeSum;
+    // return -99;
   }
 }

@@ -4,7 +4,7 @@ public class A3Tester {
     MyEdgeWeightedGraph G = new MyEdgeWeightedGraph(in);
 
     MyKruskal mst = new MyKruskal(G);
-    System.out.println(mst.weight());
+    System.out.println(mst.weight());         // 24
     System.out.println(MyKruskal.include(G)); // 1197
     System.out.println(MyKruskal.exclude(G)); // 1293
   }
