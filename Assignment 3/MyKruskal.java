@@ -13,11 +13,6 @@ class MyKruskal {
   }
 
   public MyKruskal(MyEdgeWeightedGraph G) {
-    // MinPQ<MyEdge> minPQ = new MinPQ<MyEdge>();
-    // for (MyEdge edge : G.edges()) {
-    //   minPQ.insert(edge);
-    // }
-
     // Initialize MinPQ in O(E) time instead of O(ElogE)
     MyEdge[] edges = new MyEdge[G.E()];
     int i = 0;
@@ -118,10 +113,12 @@ class MyKruskal {
         }
       }
 
+      if (mst.size() != G.V()-1) {
+        return -99;
+      }
+
       excludeSum += iterationWeight;
     }
-    
     return excludeSum;
-    // return -99;
   }
 }
