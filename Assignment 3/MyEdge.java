@@ -37,7 +37,12 @@ class MyEdge implements Comparable<MyEdge> {
     } else if (this.weight() < that.weight()) {
       return -1;
     } else {
-      return  0;
+      // Tied edge weights so compare lexicographically
+      if (this.v < that.v || (this.v == that.v && this.w < that.w)) {
+        return -1;
+      } else {
+        return 1;
+      }
     }
   }
 }
