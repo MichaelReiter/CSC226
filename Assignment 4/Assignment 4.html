@@ -1,0 +1,339 @@
+
+<!-- saved from url=(0060)http://webhome.cs.uvic.ca/~ruskey/classes/226/Ass4_2016.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<script type="text/javascript" src="./Assignment 4_files/MathJax.js">
+</script><style type="text/css"></style>
+<script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="StayFocusd-infobar" style="display:none;">
+    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
+    <span id="StayFocusd-infobar-msg"></span>
+    <span id="StayFocusd-infobar-links">
+        <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a id="StayFocusd-infobar-hide">hide once</a>
+    </span>
+</div><div id="MathJax_Message" style="display: none;"></div><h2>Written Problems:</h2>
+
+<ul>
+<p>
+</p><li>
+Find a plane graph that is self-dual (you can do this by trial-and-error or by looking at Wikipedia, but let us know what method you use).
+A graph <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;G&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" role="math" style="width: 0.784em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.724em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.746em 1000.72em 2.767em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: STIXGeneral-Italic;">G</span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 0.816em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>G</mi></math></span></span><script type="math/tex" id="MathJax-Element-1">G</script> is <em>self-dual</em> if it is isomorphic to its dual.  Give the bijection between the vertices of the two graphs that
+demonstrates that they are isomorphic.
+<p>
+</p></li><li>
+Below is the rotation system of a plane graph.  Draw all possible
+embeddings in the plane (i.e., each face should be an outer face
+in exactly one of the embeddings).
+<pre>0: 4,1,3
+1: 0,2,2
+2: 1,1
+3: 0,4,3,3
+4: 3,0
+</pre>
+<p>
+</p></li><li>
+Below is the rotation for a graph embedded on a surface.  What surface is it embedded on?   Draw a nice diagram of the graph as
+embedded on this surface.
+<pre>a: b,d,g
+b: d,c,a
+c: b,e,d
+d: a,c,b
+e: h,c,f
+f: h,g,e
+g: a,h,f
+h: f,e,g
+</pre>
+<p>
+</p></li><li>
+Find an example of a biconnected bipartite non-Hamiltonian graph.
+Explain why your graph has the required properties.
+</li><li>
+One more problem to be added later.
+</li></ul>
+
+<h2>Programming Problem:</h2>
+
+
+<h2>Background:</h2>
+
+<p>
+This assignment is based on a problem from a programming contest.  It has been modified somewhat, partially
+so that we can use JUnit testing.  You are encouraged to try to solve it as you would encounter it in an
+actual contest.  That is, try to solve it in an hour or two, without using the internet, but using only paper
+materials.
+
+</p><h2>the Problem:</h2>
+
+<p>
+Two intrepid astronauts, Fred and Wilma, have volunteered to undertake travel
+from Earth to beyond the galaxy in order to verify whether certain planets are
+inhabitable or not.  Fortunately, some wormholes have been discovered which
+effectively reduces the travel distance between some planets to zero.  For all
+other planets distance is simply the Euclidean distance between them.  Given the
+location of Earth, planets, and wormholes, your task is to determine the shortest
+travel distance between any pairs of planets.
+
+<b>Input to our main:</b>
+
+</p><ul>
+<li>
+The first line of input is a single integer, <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-4" role="math" style="width: 0.724em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.664em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.746em 1000.66em 2.767em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-5"><span class="mi" id="MathJax-Span-6" style="font-family: STIXGeneral-Italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.063em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 0.816em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi></math></span></span><script type="math/tex" id="MathJax-Element-2">T</script> (<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mn&gt;10&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-7" role="math" style="width: 4.931em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.751em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.746em 1004.75em 2.888em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-8"><span class="mn" id="MathJax-Span-9" style="font-family: STIXGeneral-Regular;">1</span><span class="mo" id="MathJax-Span-10" style="font-family: STIXGeneral-Regular; padding-left: 0.303em;">&#8804;</span><span class="mi" id="MathJax-Span-11" style="font-family: STIXGeneral-Italic; padding-left: 0.303em;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.063em;"></span></span><span class="mo" id="MathJax-Span-12" style="font-family: STIXGeneral-Regular; padding-left: 0.303em;">&#8804;</span><span class="mn" id="MathJax-Span-13" style="font-family: STIXGeneral-Regular; padding-left: 0.303em;">10</span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.184em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>&#8804;</mo><mi>T</mi><mo>&#8804;</mo><mn>10</mn></math></span></span><script type="math/tex" id="MathJax-Element-3">1 \le T \le 10</script>), the number of test cases.
+</li><li>
+Each test case consists of planets, wormholes, and a set of distance queries.
+</li><li>
+The planets list for a test case starts with a single integer, <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-4-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-14" role="math" style="width: 0.604em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.544em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.986em 1000.48em 2.948em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-15"><span class="mi" id="MathJax-Span-16" style="font-family: STIXGeneral-Italic;">p</span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 0.816em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></span></span><script type="math/tex" id="MathJax-Element-4">p</script> (<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-5-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;&amp;#x003C;&lt;/mo&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mo&gt;&amp;#x003C;&lt;/mo&gt;&lt;mn&gt;60&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-17" role="math" style="width: 4.811em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.63em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.746em 1004.63em 2.948em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-18"><span class="mn" id="MathJax-Span-19" style="font-family: STIXGeneral-Regular;">1</span><span class="mo" id="MathJax-Span-20" style="font-family: STIXGeneral-Regular; padding-left: 0.303em;">&lt;</span><span class="mi" id="MathJax-Span-21" style="font-family: STIXGeneral-Italic; padding-left: 0.303em;">p</span><span class="mo" id="MathJax-Span-22" style="font-family: STIXGeneral-Regular; padding-left: 0.303em;">&lt;</span><span class="mn" id="MathJax-Span-23" style="font-family: STIXGeneral-Regular; padding-left: 0.303em;">60</span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 1.066em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>&lt;</mo><mi>p</mi><mo>&lt;</mo><mn>60</mn></math></span></span><script type="math/tex" id="MathJax-Element-5">1 \lt p \lt 60</script>), the number of planets.
+Following this are p lines, where each line contains a planet name along with the planet's integer coordinates,
+i.e. <tt>name x y z</tt> (<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-6-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;&amp;#x003C;&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;#x003C;&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;&amp;#x22C5;&lt;/mo&gt;&lt;msup&gt;&lt;mn&gt;10&lt;/mn&gt;&lt;mn&gt;6&lt;/mn&gt;&lt;/msup&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-24" role="math" style="width: 8.356em; display: inline-block;"><span style="display: inline-block; position: relative; width: 7.996em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.505em 1008em 2.948em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-25"><span class="mn" id="MathJax-Span-26" style="font-family: STIXGeneral-Regular;">0</span><span class="mo" id="MathJax-Span-27" style="font-family: STIXGeneral-Regular; padding-left: 0.303em;">&lt;</span><span class="mi" id="MathJax-Span-28" style="font-family: STIXGeneral-Italic; padding-left: 0.303em;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-29" style="font-family: STIXGeneral-Regular;">,</span><span class="mi" id="MathJax-Span-30" style="font-family: STIXGeneral-Italic; padding-left: 0.183em;">y</span><span class="mo" id="MathJax-Span-31" style="font-family: STIXGeneral-Regular;">,</span><span class="mi" id="MathJax-Span-32" style="font-family: STIXGeneral-Italic; padding-left: 0.183em;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-33" style="font-family: STIXGeneral-Regular; padding-left: 0.303em;">&lt;</span><span class="mn" id="MathJax-Span-34" style="font-family: STIXGeneral-Regular; padding-left: 0.303em;">2</span><span class="mo" id="MathJax-Span-35" style="font-family: STIXGeneral-Regular; padding-left: 0.243em;">&#8901;</span><span class="msubsup" id="MathJax-Span-36" style="padding-left: 0.243em;"><span style="display: inline-block; position: relative; width: 1.445em; height: 0px;"><span style="position: absolute; clip: rect(3.188em 1000.97em 4.21em -999.997em); top: -4.023em; left: 0.003em;"><span class="mn" id="MathJax-Span-37" style="font-family: STIXGeneral-Regular;">10</span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; top: -4.444em; left: 1.025em;"><span class="mn" id="MathJax-Span-38" style="font-size: 70.7%; font-family: STIXGeneral-Regular;">6</span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 1.253em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn><mo>&lt;</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>x</mi><mo>&lt;</mo><mn>2</mn><mo>&#8901;</mo><msup><mn>10</mn><mn>6</mn></msup></math></span></span><script type="math/tex" id="MathJax-Element-6">0 \lt x, y, x \lt 2 \cdot 10^6</script>).
+The names of the planets will consist only of ASCII letters and numbers, and will always start with an ASCII letter.
+Planet names are case-sensitive (Earth and earth are distinct planets).
+The length of a planet name will never be greater than 50 characters. All coordinates are given in parsecs.
+</li><li>
+The wormholes list for a test case starts with a single integer, <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-7-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-39" role="math" style="width: 0.784em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.724em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.986em 1000.72em 2.767em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-40"><span class="mi" id="MathJax-Span-41" style="font-family: STIXGeneral-Italic;">w</span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 0.628em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>w</mi></math></span></span><script type="math/tex" id="MathJax-Element-7">w</script> (<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-8-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;&amp;#x003C;&lt;/mo&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mo&gt;&amp;#x003C;&lt;/mo&gt;&lt;mn&gt;40&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-42" role="math" style="width: 4.931em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.751em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.746em 1004.75em 2.767em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-43"><span class="mn" id="MathJax-Span-44" style="font-family: STIXGeneral-Regular;">0</span><span class="mo" id="MathJax-Span-45" style="font-family: STIXGeneral-Regular; padding-left: 0.303em;">&lt;</span><span class="mi" id="MathJax-Span-46" style="font-family: STIXGeneral-Italic; padding-left: 0.303em;">w</span><span class="mo" id="MathJax-Span-47" style="font-family: STIXGeneral-Regular; padding-left: 0.303em;">&lt;</span><span class="mn" id="MathJax-Span-48" style="font-family: STIXGeneral-Regular; padding-left: 0.303em;">40</span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn><mo>&lt;</mo><mi>w</mi><mo>&lt;</mo><mn>40</mn></math></span></span><script type="math/tex" id="MathJax-Element-8">0 \lt w \lt 40</script>), the number of wormholes, followed by the list of <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-9-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-49" role="math" style="width: 0.784em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.724em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.986em 1000.72em 2.767em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-50"><span class="mi" id="MathJax-Span-51" style="font-family: STIXGeneral-Italic;">w</span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 0.628em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>w</mi></math></span></span><script type="math/tex" id="MathJax-Element-9">w</script> wormholes.
+Each wormhole consists of two planet names separated by a space. The first planet name marks the entrance of wormhole,
+and the second planet name marks the exit from the wormhole. The planets that mark wormholes will be chosen from the list of planets given in the
+preceding section. \emph{Note: you can't enter a wormhole at its exit.}
+</li><li>
+The queries list for a test case starts with a single integer, <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-10-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;q&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-52" role="math" style="width: 0.604em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.544em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.986em 1000.54em 2.948em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-53"><span class="mi" id="MathJax-Span-54" style="font-family: STIXGeneral-Italic;">q</span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 0.816em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>q</mi></math></span></span><script type="math/tex" id="MathJax-Element-10">q</script> (<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-11-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;&amp;#x003C;&lt;/mo&gt;&lt;mi&gt;q&lt;/mi&gt;&lt;mo&gt;&amp;#x003C;&lt;/mo&gt;&lt;mn&gt;20&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-55" role="math" style="width: 4.811em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.63em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.746em 1004.63em 2.948em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-56"><span class="mn" id="MathJax-Span-57" style="font-family: STIXGeneral-Regular;">1</span><span class="mo" id="MathJax-Span-58" style="font-family: STIXGeneral-Regular; padding-left: 0.303em;">&lt;</span><span class="mi" id="MathJax-Span-59" style="font-family: STIXGeneral-Italic; padding-left: 0.303em;">q</span><span class="mo" id="MathJax-Span-60" style="font-family: STIXGeneral-Regular; padding-left: 0.303em;">&lt;</span><span class="mn" id="MathJax-Span-61" style="font-family: STIXGeneral-Regular; padding-left: 0.303em;">20</span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 1.066em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>&lt;</mo><mi>q</mi><mo>&lt;</mo><mn>20</mn></math></span></span><script type="math/tex" id="MathJax-Element-11">1 \lt q \lt 20</script>), the number of queries.
+Each query consists of two planet names separated by a space.  Both planets will have been listed in the planet list.
+</li></ul>
+
+<b>Output for the main:</b>
+
+<p>
+For each test case, output a line. "<tt>Case</tt> <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-12-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-62" role="math" style="width: 0.303em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.303em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.746em 1000.3em 2.767em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-63"><span class="mi" id="MathJax-Span-64" style="font-family: STIXGeneral-Italic;">i</span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 0.816em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math></span></span><script type="math/tex" id="MathJax-Element-12">i</script>:", the number of the <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-13-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-65" role="math" style="width: 0.303em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.303em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.746em 1000.3em 2.767em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-66"><span class="mi" id="MathJax-Span-67" style="font-family: STIXGeneral-Italic;">i</span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 0.816em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math></span></span><script type="math/tex" id="MathJax-Element-13">i</script>th test case.
+Then, for each query in that test case, output a line that states
+"<tt>The distancee from planet1, to planet2 is <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-14-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-68" role="math" style="width: 0.743em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.669em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(2.075em 1000.67em 3.184em -999.996em); top: -2.955em; left: 0.004em;"><span class="mrow" id="MathJax-Span-69"><span class="mi" id="MathJax-Span-70" style="font-family: STIXGeneral-Italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.004em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.962em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.073em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 0.85em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>d</mi></math></span></span><script type="math/tex" id="MathJax-Element-14">d</script> parsecs using <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-15-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-71" role="math" style="width: 0.965em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.891em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(2.297em 1000.89em 3.184em -999.996em); top: -2.955em; left: 0.004em;"><span class="mrow" id="MathJax-Span-72"><span class="mi" id="MathJax-Span-73" style="font-family: STIXGeneral-Italic;">w</span></span><span style="display: inline-block; width: 0px; height: 2.962em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.073em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 0.619em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>w</mi></math></span></span><script type="math/tex" id="MathJax-Element-15">w</script> wormholes.</tt>", where the planets are the names from the query, <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-16-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-74" role="math" style="width: 0.604em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.544em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.746em 1000.54em 2.767em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-75"><span class="mi" id="MathJax-Span-76" style="font-family: STIXGeneral-Italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>d</mi></math></span></span><script type="math/tex" id="MathJax-Element-16">d</script> is the shortest possible travel distance between the two planets, and <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-17-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-77" role="math" style="width: 0.784em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.724em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.986em 1000.72em 2.767em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-78"><span class="mi" id="MathJax-Span-79" style="font-family: STIXGeneral-Italic;">w</span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 0.628em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>w</mi></math></span></span><script type="math/tex" id="MathJax-Element-17">w</script> is the number of wormholes used in the shortest route.  Round <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-18-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-80" role="math" style="width: 0.604em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.544em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.746em 1000.54em 2.767em -999.997em); top: -2.581em; left: 0.003em;"><span class="mrow" id="MathJax-Span-81"><span class="mi" id="MathJax-Span-82" style="font-family: STIXGeneral-Italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.587em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left-width: 0px; border-left-style: solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>d</mi></math></span></span><script type="math/tex" id="MathJax-Element-18">d</script> to the nearest integer.
+
+<tt>Sample Input for main:</tt>
+
+</p><pre>3
+4 
+Earth 0 0 0 
+Proxima 5 0 0 
+Barnards 5 5 0 
+Sirius 0 5 0 
+2 
+Earth Barnards 
+Barnards Sirius 
+6 
+Earth Proxima 
+Earth Barnards 
+Earth Sirius 
+Proxima Earth 
+Barnards Earth 
+Sirius Earth 
+3 
+z1 0 0 0
+z2 10 10 10
+z3 10 0 0  
+1 
+z1 z2 
+3 
+z2 z1 
+z1 z2 
+z1 z3 
+2 
+Mars 12345 98765 87654 
+Jupiter 45678 65432 11111 
+0 
+1 
+Mars Jupiter 
+</pre>
+
+<b>Sample Output</b>
+
+<pre>Case 1:
+The distance from Earth to Proxima is 5 parsecs using 0 wormholes.
+The distance from Earth to Barnards is 0 parsecs using 1 wormholes.
+The distance from Earth to Sirius is 0 parsecs using 2 wormholes.
+The distance from Proxima to Earth is 5 parsecs using 0 wormholes.
+The distance from Barnards to Earth is 5 parsecs using 1 wormholes.
+The distance from Sirius to Earth is 5 parsecs using 0 wormholes.
+Case 2:
+The distance from z2 to z1 is 17 parsecs using 0 wormholes.
+The distance from z1 to z2 is 0 parsecs using 1 wormholes.
+The distance from z1 to z3 is 10 parsecs using 0 wormholes.
+Case 3:
+The distance from Mars to Jupiter is 89894 parsecs using 0 wormholes.
+</pre>
+
+<b>Program Structure:</b>
+
+<p>
+You should write a class <tt>Worm</tt> whose outline is shown below.
+(In a programming contest, you would have to write everything from scratch.)
+
+</p><pre>public class Worm {
+
+   // PUT YOUR CLASS VARIABLE HERE
+
+   public Worm( In in ) { 
+      // Create a new problem instance.
+   }
+
+   public double dist( String origP, String destP ) {
+      // return the distance from origP to destP
+   }
+      
+   public int   worms( String origP, String destP ) { 
+      // least number of wormholes in any shortest path from origP to destP
+   }
+ 
+   public String query( String origP, String destP ) {
+      // Output the "The distance from ... wormholes." string.
+   }
+  
+   public static void main(String[] args) {
+      // You can test your program with something like this.
+      In in = new In( args[0] );
+      int T = in.readInt();
+      for (int t=1; t&lt;=T; t++) {
+         System.out.println("Case " + t + ":") ;
+         Worm w = new Worm( in );
+         int Q = in.readInt() ;
+         for (int i=0; i&lt;Q; i++) {
+            String p1s = in.readString() ;
+            String p2s = in.readString() ;
+            System.out.println( w.query( p1s, p2s ) ) ;
+         }
+      }
+   }
+}
+</pre>
+
+<p>
+In case it is not clear from the <tt>main</tt> above (which you should read carefully),
+the constructor takes as input some text in the following format.
+
+</p><pre>4 
+Earth 0 0 0 
+Proxima 5 0 0 
+Barnards 5 5 0 
+Sirius 0 5 0 
+</pre>
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: STIXSizeOneSym, sans-serif;"></div></div></body></html>

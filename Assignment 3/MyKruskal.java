@@ -75,8 +75,13 @@ class MyKruskal {
         }
       }
 
+      if (mst.size() != G.V()-1) {
+        return -99;
+      }
+
       includeSum += iterationWeight;
     }
+
     
     return includeSum;
   }
