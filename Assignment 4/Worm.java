@@ -17,8 +17,8 @@ public class Worm {
   }
 
   public String query(String origP, String destP) {
-    // Output the "The distance from ... wormholes." string.
-    return "temp";
+    double distance = dist(origP, destP);
+    return "The distance from " + origP + " to " + destP + " is " + distance + " parsecs using " + 5 + " wormholes.";
   }
 
   public static void main(String[] args) {
