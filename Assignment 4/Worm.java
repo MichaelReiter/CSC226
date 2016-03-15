@@ -56,8 +56,6 @@ public class Worm {
       }
     }
 
-
-
     // Copy distTo into optimalDistTo before being overwritten
     optimalDistTo = new double[V][V];
     for (int i = 0; i < V; i++) {
@@ -95,33 +93,23 @@ public class Worm {
         for (int j = 0; j < V; j++) {
           if (optimalDistTo[i][k] + optimalDistTo[k][j] < optimalDistTo[i][j]) {
             optimalDistTo[i][j] = optimalDistTo[i][k] + optimalDistTo[k][j];
-            holesTaken[i][j]++;
+            holesTaken[i][j] = holesTaken[i][k] + holesTaken[k][j] + 1;
           }
         }
       }
     }
-
   }
 
   public double dist(String origP, String destP) {
     int origPIndex = planetHash.get(origP);
     int destPIndex = planetHash.get(destP);
 
-    return distTo[origPIndex][destPIndex];
+    return optimalDistTo[origPIndex][destPIndex];
   }
 
   public int worms(String origP, String destP) {
     int currentPlanet = planetHash.get(origP);
     int destinationPlanet = planetHash.get(destP);
-
-    // int count = 0;
-    // while (holesTo[currentPlanet] != -1) {
-    //   if (currentPlanet == destinationPlanet) {
-    //     break;
-    //   }
-    //   currentPlanet = holesTo[currentPlanet];
-    //   count++;
-    // }
 
     return holesTaken[currentPlanet][destinationPlanet];
   }
