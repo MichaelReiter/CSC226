@@ -1,3 +1,4 @@
+
 /******************************************************************************
  *  Compilation:  javac EdgeWeightedDigraph.java
  *  Execution:    java EdgeWeightedDigraph V E
@@ -30,6 +31,7 @@
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
  */
+@SuppressWarnings("unchecked")
 public class EdgeWeightedDigraph {
     private static final String NEWLINE = System.getProperty("line.separator");
 
