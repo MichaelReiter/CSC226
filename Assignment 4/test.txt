@@ -17,7 +17,7 @@ Sirius Earth
 3 
 z1 0 0 0
 z2 10 10 10
-z3 10 0 0  
+z3 10 0 0
 1 
 z1 z2 
 3 
@@ -29,4 +29,4 @@ Mars 12345 98765 87654
 Jupiter 45678 65432 11111 
 0 
 1 
-Mars Jupiter
+Mars Jupiter 

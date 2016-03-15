@@ -2,14 +2,15 @@ import java.util.HashMap;
 
 public class Worm {
 
+  private int[] holesTo;
   private double[][] distTo;  // distTo[v][w] = length of shortest v->w path
-  private DirectedEdge[][] edgeTo;  // edgeTo[v][w] = last edge on shortest v->w path
-  private int[][] wormholeArray;
+  private HashMap<String, Integer> planetHash = new HashMap<String, Integer>();
+  private double[][] optimalDistTo;
+  private int[][] holesTaken;
 
   public Worm(In in) {
     int V = in.readInt();
     distTo = new double[V][V];
-    edgeTo = new DirectedEdge[V][V];
 
     Planet[] planetArray = new Planet[V];
 
@@ -21,6 +22,7 @@ public class Worm {
       int z = in.readInt();
       Planet planet = new Planet(name, x, y, z);
       planetArray[v] = planet;
+      planetHash.put(name, v);
     }
 
     // Initialize distTo
@@ -53,21 +55,81 @@ public class Worm {
         }
       }
     }
+
+
+
+    // Copy distTo into optimalDistTo before being overwritten
+    optimalDistTo = new double[V][V];
+    for (int i = 0; i < V; i++) {
+      for (int j = 0; j < V; j++) {
+        optimalDistTo[i][j] = distTo[i][j];
+      }
+    }
+
+    holesTo = new int[V];
+    // Initialize holesTo
+    for (int i = 0; i < V; i++) {
+      holesTo[i] = -1;
+    }
+
+    int numberOfWormholes = in.readInt();
+
+    for (int i = 0; i < numberOfWormholes; i++) {
+      String entrance = in.readString();
+      String exit = in.readString();
+      holesTo[planetHash.get(entrance)] = planetHash.get(exit);
+    }
+
+    for (int i = 0; i < V; i++) {
+      for (int j = 0; j < V; j++) {
+        if (holesTo[i] == j) {
+          optimalDistTo[i][j] = 0;
+        }
+      }
+    }
+
+    holesTaken = new int[V][V];
+
+    for (int k = 0; k < V; k++) {
+      for (int i = 0; i < V; i++) {
+        for (int j = 0; j < V; j++) {
+          if (optimalDistTo[i][k] + optimalDistTo[k][j] < optimalDistTo[i][j]) {
+            optimalDistTo[i][j] = optimalDistTo[i][k] + optimalDistTo[k][j];
+            holesTaken[i][j]++;
+          }
+        }
+      }
+    }
+
   }
 
   public double dist(String origP, String destP) {
-    // return distTo[origP][destP];
-    return 1;
+    int origPIndex = planetHash.get(origP);
+    int destPIndex = planetHash.get(destP);
+
+    return distTo[origPIndex][destPIndex];
   }
 
-  public int worms(String origP, String destP) { 
-    // least number of wormholes in any shortest path from origP to destP
-    return 1; //temp
+  public int worms(String origP, String destP) {
+    int currentPlanet = planetHash.get(origP);
+    int destinationPlanet = planetHash.get(destP);
+
+    // int count = 0;
+    // while (holesTo[currentPlanet] != -1) {
+    //   if (currentPlanet == destinationPlanet) {
+    //     break;
+    //   }
+    //   currentPlanet = holesTo[currentPlanet];
+    //   count++;
+    // }
+
+    return holesTaken[currentPlanet][destinationPlanet];
   }
 
   public String query(String origP, String destP) {
     double distance = dist(origP, destP);
-    return "The distance from " + origP + " to " + destP + " is " + distance + " parsecs using " + 5 + " wormholes.";
+    int worms = worms(origP, destP);
+    return "The distance from " + origP + " to " + destP + " is " + (int)distance + " parsecs using " + worms + " wormholes.";
   }
 
   public static void main(String[] args) {
