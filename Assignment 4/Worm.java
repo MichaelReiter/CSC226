@@ -41,7 +41,7 @@ public class Worm {
           int wY = planetArray[w].y;
           int wZ = planetArray[w].z;
 
-          long distance = Math.round(Math.sqrt( (vX-wX)*(vX-wX) + (vY-wY)*(vY-wY) + (vZ-wZ)*(vZ-wZ) ));
+          long distance = Math.round(Math.sqrt( Math.pow(vX-wX, 2) + Math.pow(vY-wY, 2) + Math.pow(vZ-wZ, 2) ));
           distTo[v][w] = distance;
         }
       }
