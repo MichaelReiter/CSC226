@@ -55,7 +55,7 @@ public class Worm {
       }
     }
 
-    // Copy distTo into optimalDistTo before being overwritten
+    // Copy distTo into optimalDistTo
     optimalDistTo = new double[V][V];
     for (int i = 0; i < V; i++) {
       for (int j = 0; j < V; j++) {
@@ -75,27 +75,44 @@ public class Worm {
       holesTo[planetHash.get(entrance)] = planetHash.get(exit);
     }
 
+    holesTaken = new int[V][V];
+
     for (int i = 0; i < V; i++) {
       for (int j = 0; j < V; j++) {
         if (holesTo[i] == j) {
           optimalDistTo[i][j] = 0;
+          holesTaken[i][j]++;
         }
       }
     }
 
-    holesTaken = new int[V][V];
+    // for (int i = 0; i < V; i++) {
+    //   for (int j = 0; j < V; j++) {
+    //     if (directWormholePathExists(i, j)) {
+    //       optimalDistTo[i][j] = 0;
+    //     }
+    //     planetToWormhole(i, j);
+    //   }
+    // }
 
     for (int k = 0; k < V; k++) {
       for (int i = 0; i < V; i++) {
         for (int j = 0; j < V; j++) {
           if (optimalDistTo[i][k] + optimalDistTo[k][j] < optimalDistTo[i][j]) {
             optimalDistTo[i][j] = optimalDistTo[i][k] + optimalDistTo[k][j];
-            holesTaken[i][j] = holesTaken[i][k] + holesTaken[k][j] + 1;
+            holesTaken[i][j] = holesTaken[i][k] + holesTaken[k][j];
           }
         }
       }
     }
   }
+
+  // we should probably iterate through distTo and do
+  // if directWormholePathExits(i, j) then optimalDistTo[i][j] = 0;
+
+  // we should proably do something similar with wormholeToPlanet()
+
+  // now it's just a matter of counting the wormholes taken
 
   private boolean directWormholePathExists(int pIn, int pOut) {
     if (pIn == pOut) {
@@ -115,10 +132,10 @@ public class Worm {
   private void planetToWormhole(int pIn, int pOut) {
     double cost = distTo[pIn][pOut];
     for (int i = 0; i < planetArray.length; i++) {
-      int p = planetHash.get(planetArray[i].name);
-      if (directWormholePathExists(p, pOut)) {
-        if (distTo[pIn][p] < cost) {
-          optimalDistTo[pIn][pOut] = distTo[pIn][p];
+      // int p = planetHash.get(planetArray[i].name);
+      if (directWormholePathExists(i, pOut)) {
+        if (distTo[pIn][i] < cost) {
+          optimalDistTo[pIn][pOut] = distTo[pIn][i];
         }
       }
     }
