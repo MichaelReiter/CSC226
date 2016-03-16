@@ -1,18 +1,17 @@
 import java.util.HashMap;
 
 public class Worm {
-
   private int[] holesTo;
-  private double[][] distTo;  // distTo[v][w] = length of shortest v->w path
+  private double[][] distTo;
   private HashMap<String, Integer> planetHash = new HashMap<String, Integer>();
   private double[][] optimalDistTo;
   private int[][] holesTaken;
+  Planet[] planetArray;
 
   public Worm(In in) {
     int V = in.readInt();
     distTo = new double[V][V];
-
-    Planet[] planetArray = new Planet[V];
+    planetArray = new Planet[V];
 
     // Read planets from input
     for (int v = 0; v < V; v++) {
@@ -64,14 +63,12 @@ public class Worm {
       }
     }
 
-    holesTo = new int[V];
     // Initialize holesTo
+    holesTo = new int[V];
     for (int i = 0; i < V; i++) {
       holesTo[i] = -1;
     }
-
     int numberOfWormholes = in.readInt();
-
     for (int i = 0; i < numberOfWormholes; i++) {
       String entrance = in.readString();
       String exit = in.readString();
@@ -98,6 +95,49 @@ public class Worm {
         }
       }
     }
+  }
+
+  private boolean directWormholePathExists(int pIn, int pOut) {
+    if (pIn == pOut) {
+      return false;
+    }
+    int currentPlanet = pIn;
+    while (holesTo[currentPlanet] != -1) {
+      if (currentPlanet == pOut) {
+        return true;
+      } else {
+        currentPlanet = holesTo[currentPlanet];
+      }
+    }
+    return false;
+  }
+
+  private void planetToWormhole(int pIn, int pOut) {
+    double cost = distTo[pIn][pOut];
+    for (int i = 0; i < planetArray.length; i++) {
+      int p = planetHash.get(planetArray[i].name);
+      if (directWormholePathExists(p, pOut)) {
+        if (distTo[pIn][p] < cost) {
+          optimalDistTo[pIn][pOut] = distTo[pIn][p];
+        }
+      }
+    }
+  }
+
+  private double wormholeToPlanet(int pIn, int pOut) {
+    if (pIn == pOut) {
+      return -1;
+    }
+    int currentPlanet = pIn;
+    double distance = distTo[pIn][pOut];
+    while(holesTo[currentPlanet] != -1) {
+      if (distTo[currentPlanet][pOut] < distance) {
+        distance = distTo[currentPlanet][pOut];
+      } else {
+        currentPlanet = holesTo[currentPlanet];
+      }
+    }
+    return distance;
   }
 
   public double dist(String origP, String destP) {
