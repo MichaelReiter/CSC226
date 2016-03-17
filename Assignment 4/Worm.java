@@ -80,8 +80,10 @@ public class Worm {
     for (int i = 0; i < V; i++) {
       for (int j = 0; j < V; j++) {
         if (holesTo[i] == j) {
-          optimalDistTo[i][j] = 0;
-          holesTaken[i][j]++;
+          if (optimalDistTo[i][j] != 0) {
+            optimalDistTo[i][j] = 0;
+            holesTaken[i][j]++;
+          }
         }
       }
     }
