@@ -1,11 +1,11 @@
 import java.util.HashMap;
 
 public class Worm {
-  private int[] holesTo;
+  private Wormhole[] wormholes;
   private double[][] distTo;
   private HashMap<String, Integer> planetHash = new HashMap<String, Integer>();
   private double[][] optimalDistTo;
-  private int[][] holesTaken;
+  private int[][] holesBetween;
   Planet[] planetArray;
 
   public Worm(In in) {
@@ -63,100 +63,46 @@ public class Worm {
       }
     }
 
-    // Initialize holesTo
-    holesTo = new int[V];
-    for (int i = 0; i < V; i++) {
-      holesTo[i] = -1;
-    }
+    // Initialize wormhole array
     int numberOfWormholes = in.readInt();
+    wormholes = new Wormhole[numberOfWormholes];
     for (int i = 0; i < numberOfWormholes; i++) {
-      String entrance = in.readString();
-      String exit = in.readString();
-      holesTo[planetHash.get(entrance)] = planetHash.get(exit);
+      int entrance = planetHash.get(in.readString());
+      int exit = planetHash.get(in.readString());
+      Wormhole w = new Wormhole(entrance, exit);
+      wormholes[i] = w;
     }
 
-    holesTaken = new int[V][V];
+    holesBetween = new int[V][V];
 
     for (int i = 0; i < V; i++) {
       for (int j = 0; j < V; j++) {
-        if (holesTo[i] == j) {
-          if (optimalDistTo[i][j] != 0) {
-            optimalDistTo[i][j] = 0;
-            holesTaken[i][j]++;
-          }
+        if (holeExistsBetween(i, j)) {
+          optimalDistTo[i][j] = 0;
+          holesBetween[i][j]++;
         }
       }
     }
-
-    // for (int i = 0; i < V; i++) {
-    //   for (int j = 0; j < V; j++) {
-    //     if (directWormholePathExists(i, j)) {
-    //       optimalDistTo[i][j] = 0;
-    //     }
-    //     planetToWormhole(i, j);
-    //   }
-    // }
 
     for (int k = 0; k < V; k++) {
       for (int i = 0; i < V; i++) {
         for (int j = 0; j < V; j++) {
           if (optimalDistTo[i][k] + optimalDistTo[k][j] < optimalDistTo[i][j]) {
             optimalDistTo[i][j] = optimalDistTo[i][k] + optimalDistTo[k][j];
-            holesTaken[i][j] = holesTaken[i][k] + holesTaken[k][j];
+            holesBetween[i][j] = holesBetween[i][k] + holesBetween[k][j];
           }
         }
       }
     }
   }
 
-  // we should probably iterate through distTo and do
-  // if directWormholePathExits(i, j) then optimalDistTo[i][j] = 0;
-
-  // we should proably do something similar with wormholeToPlanet()
-
-  // now it's just a matter of counting the wormholes taken
-
-  private boolean directWormholePathExists(int pIn, int pOut) {
-    if (pIn == pOut) {
-      return false;
-    }
-    int currentPlanet = pIn;
-    while (holesTo[currentPlanet] != -1) {
-      if (currentPlanet == pOut) {
+  private boolean holeExistsBetween(int entrance, int exit) {
+    for (int i = 0; i < wormholes.length; i++) {
+      if (wormholes[i].entrance == entrance && wormholes[i].exit == exit) {
         return true;
-      } else {
-        currentPlanet = holesTo[currentPlanet];
       }
     }
     return false;
-  }
-
-  private void planetToWormhole(int pIn, int pOut) {
-    double cost = distTo[pIn][pOut];
-    for (int i = 0; i < planetArray.length; i++) {
-      // int p = planetHash.get(planetArray[i].name);
-      if (directWormholePathExists(i, pOut)) {
-        if (distTo[pIn][i] < cost) {
-          optimalDistTo[pIn][pOut] = distTo[pIn][i];
-        }
-      }
-    }
-  }
-
-  private double wormholeToPlanet(int pIn, int pOut) {
-    if (pIn == pOut) {
-      return -1;
-    }
-    int currentPlanet = pIn;
-    double distance = distTo[pIn][pOut];
-    while(holesTo[currentPlanet] != -1) {
-      if (distTo[currentPlanet][pOut] < distance) {
-        distance = distTo[currentPlanet][pOut];
-      } else {
-        currentPlanet = holesTo[currentPlanet];
-      }
-    }
-    return distance;
   }
 
   public double dist(String origP, String destP) {
@@ -170,7 +116,7 @@ public class Worm {
     int currentPlanet = planetHash.get(origP);
     int destinationPlanet = planetHash.get(destP);
 
-    return holesTaken[currentPlanet][destinationPlanet];
+    return holesBetween[currentPlanet][destinationPlanet];
   }
 
   public String query(String origP, String destP) {
@@ -198,12 +144,21 @@ public class Worm {
 
 class Planet {
   public String name;
-  int x, y, z;
+  public int x, y, z;
 
   Planet(String name, int x, int y, int z) {
     this.name = name;
     this.x = x;
     this.y = y;
     this.z = z;
+  }
+}
+
+class Wormhole {
+  public int entrance, exit;
+
+  Wormhole(int entrance, int exit) {
+    this.entrance = entrance;
+    this.exit = exit;
   }
 }
