@@ -108,7 +108,6 @@ public class Worm {
   public double dist(String origP, String destP) {
     int origPIndex = planetHash.get(origP);
     int destPIndex = planetHash.get(destP);
-
     return optimalDistTo[origPIndex][destPIndex];
   }
 
