@@ -62,7 +62,7 @@ public class Maze {
 
   // Wall in direction p?
   public boolean ok(int x, int y, int p) {
-    return (m[x][y] & TWO[p]) == TWO[p]);
+    return (m[x][y] & TWO[p]) == TWO[p];
   }
 
   private boolean downWall(int x, int y, int p) {
@@ -115,15 +115,16 @@ public class Maze {
   }
   
   public String toString() {
-    // FOR YOU TO FILL IN.  MUST FOLLOW CORRECT FORMAT.
+    
+    return "1 2 3\n";
   }
 
   public void solveMaze() {
-    // FOR YOU TO CODE.
+
   }
-    
+
   public long numSolutions() {
-    // FOR YOU TO CODE.
+    return count;
   }
   
   public static void main(String[] args) {
