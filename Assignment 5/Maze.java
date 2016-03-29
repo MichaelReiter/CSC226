@@ -29,7 +29,15 @@ public class Maze {
   private long   count;  // used in finding the number of solutions.
   private Random r;      // for generating random integers.
 
-  public Maze (int nr, int nc, int seed) {
+  public int getRows() {
+    return rows;
+  }
+
+  public int getCols() {
+    return cols;
+  }
+
+  public Maze(int nr, int nc, int seed) {
     r = new Random(seed);
     rows = nr;
     cols = nc;
@@ -52,9 +60,9 @@ public class Maze {
     Create(nr/2+1, nc/2+1, 0);
   }
 
-  // Wall in direction p?  
+  // Wall in direction p?
   public boolean ok(int x, int y, int p) {
-    return ((m[x][y] & TWO[p]) == TWO[p]);
+    return (m[x][y] & TWO[p]) == TWO[p]);
   }
 
   private boolean downWall(int x, int y, int p) {
@@ -63,15 +71,14 @@ public class Maze {
       m[x+DX[p]][y+DY[p]] ^= TWO[p^2];
       return true;
     }
-
     return false;
   }
   
   private void knockDown(int count) {
     // Caution: make sure there are at least count walls!
     for (int i = 0; i < count; i++) {
-      int x = 1+r.nextInt(cols);
-      int y = 1+r.nextInt(rows);
+      int x = 1 + r.nextInt(rows);
+      int y = 1 + r.nextInt(cols);
       if (!downWall(x, y, r.nextInt(4))) {
         i--;
       }
@@ -80,8 +87,7 @@ public class Maze {
   
   private void Create(int x, int y, int val) {
     int[] perm = randPerm(4);
-    m[x][y] ^= val;
-
+    m[x][y] ^= val;  
     for (int i = 0; i < 4; i++) {
       int p = perm[i];
       if (m[x+DX[p]][y+DY[p]] == 15) {
@@ -94,7 +100,6 @@ public class Maze {
   private int[] randPerm(int n) {
     // This algorithm should look familiar!
     int[] perm = new int[n];
-
     for (int k = 0; k < n; k++) {
       perm[k] = k;
     }
@@ -106,7 +111,7 @@ public class Maze {
       perm[k-1] = t;
     }
 
-    return(perm);
+    return perm;
   }
   
   public String toString() {
@@ -127,7 +132,7 @@ public class Maze {
     Maze maz = new Maze(row, col, 9999);
     System.out.print(maz);
     System.out.println("Solutions = " + maz.numSolutions());
-    maz.knockDown((row+col)/4);
+    maz.knockDown((row+col) / 4);
     System.out.print(maz);
     System.out.println("Solutions = " + maz.numSolutions());
     maz = new Maze(row, col, 9999);  // creates the same maze anew.
