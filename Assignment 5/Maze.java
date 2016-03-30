@@ -41,7 +41,7 @@ public class Maze {
     r = new Random(seed);
     rows = nr;
     cols = nc;
-    m = new int[nr+2][nc+2];
+    m = new int[nr + 2][nc + 2];
 
     for (int r = 1; r <= nr; r++) {
       for (int c = 1; c <= nc; c++) {
@@ -49,15 +49,15 @@ public class Maze {
       }
     }
 
-    for (int r = 0; r < nr+2; r++) {
-      m[r][0] = m[r][nc+1] = 16;
+    for (int r = 0; r < nr + 2; r++) {
+      m[r][0] = m[r][nc + 1] = 16;
     }
 
-    for (int c = 0; c < nc+2; c++) {
-      m[0][c] = m[nr+1][c] = 16;
+    for (int c = 0; c < nc + 2; c++) {
+      m[0][c] = m[nr + 1][c] = 16;
     }
 
-    Create(nr/2+1, nc/2+1, 0);
+    Create(nr/2 + 1, nc/2 + 1, 0);
   }
 
   // Wall in direction p?
@@ -66,9 +66,9 @@ public class Maze {
   }
 
   private boolean downWall(int x, int y, int p) {
-    if (ok(x,y,p) && m[x+DX[p]][y+DY[p]] != 16) {
+    if (ok(x, y, p) && m[x + DX[p]][y + DY[p]] != 16) {
       m[x][y] ^= TWO[p];
-      m[x+DX[p]][y+DY[p]] ^= TWO[p^2];
+      m[x + DX[p]][y + DY[p]] ^= TWO[p^2];
       return true;
     }
     return false;
@@ -90,9 +90,9 @@ public class Maze {
     m[x][y] ^= val;  
     for (int i = 0; i < 4; i++) {
       int p = perm[i];
-      if (m[x+DX[p]][y+DY[p]] == 15) {
+      if (m[x + DX[p]][y + DY[p]] == 15) {
         m[x][y] ^= TWO[p];  
-        Create(x+DX[p], y+DY[p], TWO[p^2]);
+        Create(x + DX[p], y + DY[p], TWO[p^2]);
       }
     }
   }
@@ -107,16 +107,29 @@ public class Maze {
     for (int k = n; k > 0; k--) {
       int rand = r.nextInt(k);
       int t = perm[rand];
-      perm[rand] = perm[k-1];
-      perm[k-1] = t;
+      perm[rand] = perm[k - 1];
+      perm[k - 1] = t;
     }
 
     return perm;
   }
   
   public String toString() {
-    
-    return "1 2 3\n";
+    String s = "";
+    for (int i = 1; i <= rows; i++) {
+      for (int j = 1; j <= cols; j++) {
+        if (j == 1) {
+          s += String.format("%2d", m[i][j]);
+        } else {
+          s += String.format("%3d", m[i][j]);
+        }
+      }
+      if (i > 0) {
+        s += "\n";
+      } 
+    }
+
+    return s;
   }
 
   public void solveMaze() {
