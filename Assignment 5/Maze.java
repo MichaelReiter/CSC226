@@ -134,46 +134,51 @@ public class Maze {
   private boolean solver(int x, int y) {
     // Done when we reach the bottom right (excluding the outer wall)
     if (x == rows && y == cols) {
-      System.out.println("base case");
+      m[x][y] += 16;
       return true;
-    } else if (x > 0 && x <= rows && y > 0 && y <= cols && !visited[x][y]) {
-      if ((m[x][y] & 8) != 8) {
+    } else if (x > 0 && x <= rows && y > 0 && y <= cols) {
+      if ((m[x][y] & 8) != 8 && !visited[x-1][y]) {
         // Move up
         visited[x][y] = true;
         boolean solved = this.solver(x-1, y);
         if (solved) {
           m[x][y] += 16;
         }
+        visited[x][y] = false;
       }
-      if ((m[x][y] & 4) != 4) {
+      if ((m[x][y] & 4) != 4 && !visited[x][y+1]) {
         // Move right
         visited[x][y] = true;
         boolean solved = this.solver(x, y+1);
         if (solved) {
           m[x][y] += 16;
         }
+        visited[x][y] = false;
       }
-      if ((m[x][y] & 2) != 2) {
+      if ((m[x][y] & 2) != 2 && !visited[x+1][y]) {
         // Move down
         visited[x][y] = true;
         boolean solved = this.solver(x+1, y);
         if (solved) {
           m[x][y] += 16;
         }
+        visited[x][y] = false;
       }
-      if ((m[x][y] & 1) != 1) {
+      if ((m[x][y] & 1) != 1 && !visited[x][y-1]) {
         // Move left
         visited[x][y] = true;
         boolean solved = this.solver(x, y-1);
         if (solved) {
           m[x][y] += 16;
         }
+        visited[x][y] = false;
       }
     }
     return false;
   }
 
   public long numSolutions() {
+    numberOfSolutions = 0;
     countSolutionsVisited = new boolean[rows+1][cols+1];
     this.countSolutions(1, 1);
     return numberOfSolutions;
@@ -182,39 +187,32 @@ public class Maze {
   private void countSolutions(int x, int y) {
     // Done when we reach the bottom right (excluding the outer wall)
     if (x == rows && y == cols) {
-      // System.out.println("count base solutions");
-      numberOfSolutions += 1;
-    } else if (x > 0 && x <= rows && y > 0 && y <= cols && !countSolutionsVisited[x][y]) {
-      if ((m[x][y] & 8) != 8) {
+      numberOfSolutions++;
+    } else if (x > 0 && x <= rows && y > 0 && y <= cols) {
+      if ((m[x][y] & 8) != 8 && !countSolutionsVisited[x-1][y]) {
         // Move up
-        // System.out.println(m[x][y] + " AND " + 8 + " = " + (m[x][y] & 8));
-        // System.out.println("moving up to " + (x-1) + ", " + y);
         countSolutionsVisited[x][y] = true;
         this.countSolutions(x-1, y);
+        countSolutionsVisited[x][y] = false;
       }
-      if ((m[x][y] & 4) != 4) {
+      if ((m[x][y] & 4) != 4 && !countSolutionsVisited[x][y+1]) {
         // Move right
-        // System.out.println(m[x][y] + " AND " + 4 + " = " + (m[x][y] & 4));
-        // System.out.println("moving right to " + x + ", " + (y+1));
         countSolutionsVisited[x][y] = true;
         this.countSolutions(x, y+1);
+        countSolutionsVisited[x][y] = false;
       }
-      if ((m[x][y] & 2) != 2) {
+      if ((m[x][y] & 2) != 2 && !countSolutionsVisited[x+1][y]) {
         // Move down
-        // System.out.println(m[x][y] + " AND " + 2 + " = " + (m[x][y] & 2));
-        // System.out.println("moving down to " + (x+1) + ", " + y);
         countSolutionsVisited[x][y] = true;
         this.countSolutions(x+1, y);
+        countSolutionsVisited[x][y] = false;
       }
-      if ((m[x][y] & 1) != 1) {
+      if ((m[x][y] & 1) != 1 && !countSolutionsVisited[x][y-1]) {
         // Move left
-        // System.out.println(m[x][y] + " AND " + 1 + " = " + (m[x][y] & 1));
-        // System.out.println("moving left to " + x + ", " + (y-1));
         countSolutionsVisited[x][y] = true;
         this.countSolutions(x, y-1);
+        countSolutionsVisited[x][y] = false;
       }
-    } else {
-      // System.out.println("returning from stack");
     }
   }
   
