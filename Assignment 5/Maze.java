@@ -28,6 +28,9 @@ public class Maze {
   private boolean done;  // used in finding a single solution.
   private long   count;  // used in finding the number of solutions.
   private Random r;      // for generating random integers.
+  private int numberOfSolutions;
+  boolean[][] countSolutionsVisited;
+  boolean[][] visited;
 
   public int getRows() {
     return rows;
@@ -42,21 +45,17 @@ public class Maze {
     rows = nr;
     cols = nc;
     m = new int[nr + 2][nc + 2];
-
     for (int r = 1; r <= nr; r++) {
       for (int c = 1; c <= nc; c++) {
         m[r][c] = 15;
       }
     }
-
     for (int r = 0; r < nr + 2; r++) {
       m[r][0] = m[r][nc + 1] = 16;
     }
-
     for (int c = 0; c < nc + 2; c++) {
       m[0][c] = m[nr + 1][c] = 16;
     }
-
     Create(nr/2 + 1, nc/2 + 1, 0);
   }
 
@@ -73,7 +72,7 @@ public class Maze {
     }
     return false;
   }
-  
+
   private void knockDown(int count) {
     // Caution: make sure there are at least count walls!
     for (int i = 0; i < count; i++) {
@@ -84,33 +83,30 @@ public class Maze {
       }
     }
   }
-  
+
   private void Create(int x, int y, int val) {
     int[] perm = randPerm(4);
-    m[x][y] ^= val;  
+    m[x][y] ^= val;
     for (int i = 0; i < 4; i++) {
       int p = perm[i];
       if (m[x + DX[p]][y + DY[p]] == 15) {
-        m[x][y] ^= TWO[p];  
+        m[x][y] ^= TWO[p];
         Create(x + DX[p], y + DY[p], TWO[p^2]);
       }
     }
   }
 
   private int[] randPerm(int n) {
-    // This algorithm should look familiar!
     int[] perm = new int[n];
     for (int k = 0; k < n; k++) {
       perm[k] = k;
     }
-
     for (int k = n; k > 0; k--) {
       int rand = r.nextInt(k);
       int t = perm[rand];
       perm[rand] = perm[k - 1];
       perm[k - 1] = t;
     }
-
     return perm;
   }
   
@@ -118,26 +114,108 @@ public class Maze {
     String s = "";
     for (int i = 1; i <= rows; i++) {
       for (int j = 1; j <= cols; j++) {
-        if (j == 1) {
-          s += String.format("%2d", m[i][j]);
-        } else {
+        if (j != 1) {
           s += String.format("%3d", m[i][j]);
+        } else {
+          s += String.format("%2d", m[i][j]);
         }
       }
-      if (i > 0) {
-        s += "\n";
-      } 
+      s += "\n";
     }
-
     return s;
   }
 
   public void solveMaze() {
+    // Start at the top left (excluding the outer wall)
+    visited = new boolean[rows+1][cols+1];
+    this.solver(1, 1);
+  }
 
+  private boolean solver(int x, int y) {
+    // Done when we reach the bottom right (excluding the outer wall)
+    if (x == rows && y == cols) {
+      System.out.println("base case");
+      return true;
+    } else if (x > 0 && x <= rows && y > 0 && y <= cols && !visited[x][y]) {
+      if ((m[x][y] & 8) != 8) {
+        // Move up
+        visited[x][y] = true;
+        boolean solved = this.solver(x-1, y);
+        if (solved) {
+          m[x][y] += 16;
+        }
+      }
+      if ((m[x][y] & 4) != 4) {
+        // Move right
+        visited[x][y] = true;
+        boolean solved = this.solver(x, y+1);
+        if (solved) {
+          m[x][y] += 16;
+        }
+      }
+      if ((m[x][y] & 2) != 2) {
+        // Move down
+        visited[x][y] = true;
+        boolean solved = this.solver(x+1, y);
+        if (solved) {
+          m[x][y] += 16;
+        }
+      }
+      if ((m[x][y] & 1) != 1) {
+        // Move left
+        visited[x][y] = true;
+        boolean solved = this.solver(x, y-1);
+        if (solved) {
+          m[x][y] += 16;
+        }
+      }
+    }
+    return false;
   }
 
   public long numSolutions() {
-    return count;
+    countSolutionsVisited = new boolean[rows+1][cols+1];
+    this.countSolutions(1, 1);
+    return numberOfSolutions;
+  }
+
+  private void countSolutions(int x, int y) {
+    // Done when we reach the bottom right (excluding the outer wall)
+    if (x == rows && y == cols) {
+      // System.out.println("count base solutions");
+      numberOfSolutions += 1;
+    } else if (x > 0 && x <= rows && y > 0 && y <= cols && !countSolutionsVisited[x][y]) {
+      if ((m[x][y] & 8) != 8) {
+        // Move up
+        // System.out.println(m[x][y] + " AND " + 8 + " = " + (m[x][y] & 8));
+        // System.out.println("moving up to " + (x-1) + ", " + y);
+        countSolutionsVisited[x][y] = true;
+        this.countSolutions(x-1, y);
+      }
+      if ((m[x][y] & 4) != 4) {
+        // Move right
+        // System.out.println(m[x][y] + " AND " + 4 + " = " + (m[x][y] & 4));
+        // System.out.println("moving right to " + x + ", " + (y+1));
+        countSolutionsVisited[x][y] = true;
+        this.countSolutions(x, y+1);
+      }
+      if ((m[x][y] & 2) != 2) {
+        // Move down
+        // System.out.println(m[x][y] + " AND " + 2 + " = " + (m[x][y] & 2));
+        // System.out.println("moving down to " + (x+1) + ", " + y);
+        countSolutionsVisited[x][y] = true;
+        this.countSolutions(x+1, y);
+      }
+      if ((m[x][y] & 1) != 1) {
+        // Move left
+        // System.out.println(m[x][y] + " AND " + 1 + " = " + (m[x][y] & 1));
+        // System.out.println("moving left to " + x + ", " + (y-1));
+        countSolutionsVisited[x][y] = true;
+        this.countSolutions(x, y-1);
+      }
+    } else {
+      // System.out.println("returning from stack");
+    }
   }
   
   public static void main(String[] args) {
@@ -147,6 +225,7 @@ public class Maze {
     System.out.print(maz);
     System.out.println("Solutions = " + maz.numSolutions());
     maz.knockDown((row+col) / 4);
+    // PrintMaze.displayMaze(maz);
     System.out.print(maz);
     System.out.println("Solutions = " + maz.numSolutions());
     maz = new Maze(row, col, 9999);  // creates the same maze anew.
