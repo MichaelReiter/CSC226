@@ -126,8 +126,7 @@ public class Maze {
   }
 
   public void solveMaze() {
-    // Start at the top left (excluding the outer wall)
-    visited = new boolean[rows+1][cols+1];
+    visited = new boolean[rows + 1][cols + 1];
     solver(1, 1);
   }
 
@@ -183,7 +182,7 @@ public class Maze {
 
   public long numSolutions() {
     solutionCount = 0;
-    countSolutionsVisited = new boolean[rows+1][cols+1];
+    countSolutionsVisited = new boolean[rows + 1][cols + 1];
     countSolutions(1, 1);
     return solutionCount;
   }
@@ -227,7 +226,6 @@ public class Maze {
     System.out.print(maz);
     System.out.println("Solutions = " + maz.numSolutions());
     maz.knockDown((row+col) / 4);
-    // PrintMaze.displayMaze(maz);
     System.out.print(maz);
     System.out.println("Solutions = " + maz.numSolutions());
     maz = new Maze(row, col, 9999);  // creates the same maze anew.
