@@ -28,7 +28,7 @@ public class Maze {
   private boolean done;  // used in finding a single solution.
   private long   count;  // used in finding the number of solutions.
   private Random r;      // for generating random integers.
-  private int numberOfSolutions;
+  private int solutionCount;
   boolean[][] countSolutionsVisited;
   boolean[][] visited;
 
@@ -128,7 +128,7 @@ public class Maze {
   public void solveMaze() {
     // Start at the top left (excluding the outer wall)
     visited = new boolean[rows+1][cols+1];
-    this.solver(1, 1);
+    solver(1, 1);
   }
 
   private boolean solver(int x, int y) {
@@ -140,36 +140,40 @@ public class Maze {
       if ((m[x][y] & 8) != 8 && !visited[x-1][y]) {
         // Move up
         visited[x][y] = true;
-        boolean solved = this.solver(x-1, y);
+        boolean solved = solver(x-1, y);
         if (solved) {
           m[x][y] += 16;
+          return true;
         }
         visited[x][y] = false;
       }
       if ((m[x][y] & 4) != 4 && !visited[x][y+1]) {
         // Move right
         visited[x][y] = true;
-        boolean solved = this.solver(x, y+1);
+        boolean solved = solver(x, y+1);
         if (solved) {
           m[x][y] += 16;
+          return true;
         }
         visited[x][y] = false;
       }
       if ((m[x][y] & 2) != 2 && !visited[x+1][y]) {
         // Move down
         visited[x][y] = true;
-        boolean solved = this.solver(x+1, y);
+        boolean solved = solver(x+1, y);
         if (solved) {
           m[x][y] += 16;
+          return true;
         }
         visited[x][y] = false;
       }
       if ((m[x][y] & 1) != 1 && !visited[x][y-1]) {
         // Move left
         visited[x][y] = true;
-        boolean solved = this.solver(x, y-1);
+        boolean solved = solver(x, y-1);
         if (solved) {
           m[x][y] += 16;
+          return true;
         }
         visited[x][y] = false;
       }
@@ -178,39 +182,39 @@ public class Maze {
   }
 
   public long numSolutions() {
-    numberOfSolutions = 0;
+    solutionCount = 0;
     countSolutionsVisited = new boolean[rows+1][cols+1];
-    this.countSolutions(1, 1);
-    return numberOfSolutions;
+    countSolutions(1, 1);
+    return solutionCount;
   }
 
   private void countSolutions(int x, int y) {
     // Done when we reach the bottom right (excluding the outer wall)
     if (x == rows && y == cols) {
-      numberOfSolutions++;
+      solutionCount++;
     } else if (x > 0 && x <= rows && y > 0 && y <= cols) {
       if ((m[x][y] & 8) != 8 && !countSolutionsVisited[x-1][y]) {
         // Move up
         countSolutionsVisited[x][y] = true;
-        this.countSolutions(x-1, y);
+        countSolutions(x-1, y);
         countSolutionsVisited[x][y] = false;
       }
       if ((m[x][y] & 4) != 4 && !countSolutionsVisited[x][y+1]) {
         // Move right
         countSolutionsVisited[x][y] = true;
-        this.countSolutions(x, y+1);
+        countSolutions(x, y+1);
         countSolutionsVisited[x][y] = false;
       }
       if ((m[x][y] & 2) != 2 && !countSolutionsVisited[x+1][y]) {
         // Move down
         countSolutionsVisited[x][y] = true;
-        this.countSolutions(x+1, y);
+        countSolutions(x+1, y);
         countSolutionsVisited[x][y] = false;
       }
       if ((m[x][y] & 1) != 1 && !countSolutionsVisited[x][y-1]) {
         // Move left
         countSolutionsVisited[x][y] = true;
-        this.countSolutions(x, y-1);
+        countSolutions(x, y-1);
         countSolutionsVisited[x][y] = false;
       }
     }
