@@ -19,10 +19,11 @@ In this part of the assignment you will get practice in recursive backtrack prog
 and with some of the Java bitwise operators.  Your objective is to write a program for solving mazes
 and for counting the number of solutions to a maze.  We supply the code for creating a
 good-looking random maze.
+
 <P>
 We will think of the maze as being stored in a two-dimensional array
 <TT>m[][]</TT> of integers using the explanation given below.
-Take a look at the output below for further examples of mazes
+Take a look at the output further down for other examples of mazes
 using this encoding.
 
 <PRE>
@@ -46,7 +47,7 @@ using this encoding.
 </PRE>
 
 A template for your program may be found here:
-<A HREF="ProgramTemplate.txt"><TT>Main.java</TT></A>.
+<A HREF="ProgramTemplate.txt"><TT>ProgramTemplate.txt</TT></A>.
 You should understand the code in this template before
 writing any code of your own.  Some aspects of the code form
 part of the written questions below.  Note that a random number
@@ -64,8 +65,12 @@ With the main as provided, <TT>java Maze 3 3</TT> should produce the output show
 Make sure you understand how the numbers correspond to walls.
 In the second output one wall has been removed, and there are now
 two possible solutions.  The third output shows the solution to the
-first maze, each cell along the solution path has 16 added to 
+first maze; each cell along the solution path has 16 added to 
 the initial cell number.
+
+<P>
+NOTE: Each solution path is between the upper left corner and the
+lower right corner.
 
 <PRE>
  9 10 12
@@ -152,7 +157,7 @@ actual size of the tree.
 <LI>
 From the book: Exercise 6.38.
 <LI>
-Find the max-flow and min-cut in the following network as it
+Find the max-flow and min-cut in the attached network as it
 would be found by the Ford-Fulkerson algorithm.
 </UL>
 
